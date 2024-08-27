@@ -7,7 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-LegoSet.create(set_name: 'lego')
-LegoSet.create(set_name: 'set')
-LegoSet.create(set_name: 'leg')
-LegoSet.create(set_name: 'water')
+LegoSet.create(set_name: 'John')
+LegoSet.create(set_name: 'Doe')
+LegoSet.create(set_name: 'Jane')
+LegoSet.create(set_name: 'Due')
