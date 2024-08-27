@@ -3,3 +3,6 @@
 <% @legos.each do |lego| %>
   <p><%= lego.set_name %></p>
 <% end %>
+
+<%# <a href="/lego_sets/new">Add Lego Sets</a> %>
+<%= link_to "Add Lego Sets", new_lego_set_path, class: "btn btn-info"%>

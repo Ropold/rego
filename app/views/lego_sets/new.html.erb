@@ -1,2 +1,9 @@
 <h1>LegoSets#new</h1>
 <p>Find me in app/views/lego_sets/new.html.erb</p>
+<%= simple_form_for(@lego) do |f| %>
+  <%= f.input :set_name %>
+  <%= f.input :lego_nr %>
+  <%= f.input :release_year %>
+  <%= f.input :price_per_day %>
+  <%= f.submit %>
+<% end %>
