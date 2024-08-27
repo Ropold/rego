@@ -1,5 +1,6 @@
 class LegoSetsController < ApplicationController
   def index
+    @legos = LegoSet.all
   end
 
   def new
