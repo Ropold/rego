@@ -1,0 +1,7 @@
+<h1>Booking#new</h1>
+<p>Find me in app/views/bookings/new.html.erb</p>
+<%= simple_form_for [@lego, @booking] do |f| %>
+  <%= f.input :rent_start %>
+  <%= f.input :rent_end %>
+  <%= f.submit %>
+<% end %>
