@@ -1,9 +1,26 @@
-<h1>LegoSets#new</h1>
-<p>Find me in app/views/lego_sets/new.html.erb</p>
-<%= simple_form_for(@lego) do |f| %>
-  <%= f.input :set_name %>
-  <%= f.input :lego_nr %>
-  <%= f.input :release_year %>
-  <%= f.input :price_per_day %>
-  <%= f.submit %>
-<% end %>
+<div class="container mt-4 p-3">
+  <div class="card card-lego-form">
+    <div class="card-header text-center p-2">
+      <h2>Add Your Lego Set</h2>
+    </div>
+    <div class="card-body">
+      <%= simple_form_for(@lego) do |f| %>
+        <div class="form-group">
+          <%= f.input :set_name, label: "Set Name", input_html: {class: "form-control"} %>
+        </div>
+        <div class="form-group">
+          <%= f.input :lego_nr, label: "Lego Number", input_html: {class: "form-control"} %>
+        </div>
+        <div class="form-group">
+          <%= f.input :release_year, label: "Release Year", input_html: {class: "form-control"} %>
+        </div>
+        <div class="form-group">
+          <%= f.input :price_per_day, label: "Price per Day", input_html: {class: "form-control"} %>
+        </div>
+        <div class="text-center d-grid gap-2">
+          <%= f.submit "Add Set", class: "btn btn-warning" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
