@@ -1,8 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-  
-    <%= link_to root_path, class: "navbar-brand" do %>
+
+    <%= link_to root_path, class: "navbar-brand d-flex" do %>
       <%= image_tag "https://cdn.pixabay.com/photo/2018/06/02/14/40/lego-3448508_960_720.png" %>
+      <h2 class="ms-3"><strong>REGO</strong></h2>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,13 +17,13 @@
             <%= link_to "Whish-list", "#", class: "nav-link" %>
           </li>
             <li class="nav-item">
-            <%= link_to "Bookings", my_bookings_path, class: "nav-link" %>
+            <strong><%= link_to "Bookings", my_bookings_path, class: "nav-link" %></strong>
           </li>
           <li class="nav-item">
-            <%= link_to "My Lego Sets", my_sets_path, class: "nav-link" %>
+            <strong><%= link_to "My Lego Sets", my_sets_path, class: "nav-link" %></strong>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <strong><%= link_to "Add a new Set", "/lego_sets/new", class: "nav-link" %></strong>
           </li>
 
           <li class="nav-item dropdown">

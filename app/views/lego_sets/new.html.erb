@@ -16,6 +16,9 @@
         </div>
         <div class="form-group">
           <%= f.input :price_per_day, label: "Price per Day", input_html: {class: "form-control"} %>
+          </div>
+        <div class="form-group">
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         </div>
         <div class="text-center d-grid gap-2">
           <%= f.submit "Add Set", class: "btn btn-warning" %>
