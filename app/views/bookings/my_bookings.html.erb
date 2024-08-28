@@ -1,33 +1,31 @@
+<h1 class="text-center mt-3"> <strong> Your Bookings </strong></h1>
 <% @bookings.each do |booking| %>
-  <div class="container mt-4">
-  <div class="card bg-info">
-    <div class="card-header">
-        <h1 class="card-title"><strong>Booked Set</strong></h1>
+  <div class="container mt-5">
+  <div class="card card-lego">
+    <img src="https://wallpapercave.com/wp/wp2350530.jpg" alt="Lego Set Image" class="lego-img" />
+    <div class="card-lego-infos">
+
+      <div>
+        <h2 class="card-title py-2"><strong><%= booking.lego_set.set_name %>:</strong></h2>
+        <p>Lego Set Number: <strong><%= booking.lego_set.lego_nr %></strong></p>
+        <p>Release Year: <strong><%= booking.lego_set.release_year %></strong></p>
+        <p>Rent start: <strong><%= booking.rent_start %></strong></p>
+        <p>rent end: <strong><%= booking.rent_end %></strong></p>
+      </div>
+
+      <h2 class="card-lego-price m-5"><%= booking.lego_set.price_per_day %>€ / per day</h2>
     </div>
+
     <div class="card-body">
-        <ul class="list-group">
-            <li class="d-flex justify-content-between">
-                <strong>Set Name:</strong>
-                <span><strong><%= booking.lego_set.set_name %></strong></span>
-            </li>
-            <li class="d-flex justify-content-between">
-                <strong>Lego Number:</strong>
-                <span><strong><%= booking.lego_set.lego_nr %></strong></span>
-            </li>
-            <li class="d-flex justify-content-between">
-                <strong>Release Year:</strong>
-                <span><strong><%= booking.lego_set.release_year %></strong></span>
-            </li>
-            <li class="d-flex justify-content-between">
-                <strong>Price per Day:</strong>
-                <span><strong><%= booking.lego_set.price_per_day %></strong></span>
-            </li>
-        </ul>
+      <ul class="list-group">
+        <li class="list-group-item d-flex" style="background-color: lightyellow">
+          <strong>Description:</strong>
+          <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, at pariatur alias earum repellendus officiis eum quas provident enim. Eos deserunt ipsum quidem debitis omnis sint voluptates temporibus veniam architecto?</span>
+        </li>
+      </ul>
     </div>
-    <div class="card-footer text-right">
-        <button class="btn btn-dark">Edit</button>
-        <button class="btn btn-warning">Delete</button>
     </div>
   </div>
 </div>
+
 <% end %>
