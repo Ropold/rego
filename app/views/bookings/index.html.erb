@@ -1,34 +1,55 @@
+<h1 class="text-center mt-3"> <strong> Booking requests to : <%= @lego.set_name %></strong></h1>
+
+  <div class="container mt-5">
+  <div class="card card-lego">
+    <img src="https://wallpapercave.com/wp/wp2350530.jpg" alt="Lego Set Image" class="lego-img" />
+    <div class="card-lego-infos">
+
+      <div>
+        <h2 class="card-title py-2"><strong><%= @lego.set_name %>:</strong></h2>
+        <p>Lego Set Number: <strong><%= @lego.lego_nr %></strong></p>
+        <p>Release Year: <strong><%= @lego.release_year %></strong></p>
+      </div>
+
+      <h2 class="card-lego-price m-5"><%= @lego.price_per_day %>€ / per day</h2>
+    </div>
+
+    <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item d-flex" style="background-color: lightyellow">
+          <strong>Description:</strong>
+          <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, at pariatur alias earum repellendus officiis eum quas provident enim. Eos deserunt ipsum quidem debitis omnis sint voluptates temporibus veniam architecto?</span>
+        </li>
+      </ul>
+    </div>
+    </div>
+  </div>
+</div>
+
+
 <% @bookings.each do |booking| %>
-    <div class="container mt-4">
-    <div class="card bg-info">
-      <div class="card-header">
-          <h1 class="card-title"><strong>request:</strong></h1>
+  <div class="container mt-5">
+  <div class="card card-lego">
+    <div class="card-lego-infos">
+
+      <div>
+        <h2 class="card-title py-2"><strong>request from : </strong></h2>
+        <p> <strong><%= booking.user.email %></strong></p>
+        <p>Rent start: <strong><%= booking.rent_start %></strong></p>
+        <p>rent end: <strong><%= booking.rent_end %></strong></p>
       </div>
-      <div class="card-body">
-          <ul class="list-group">
-              <li class="d-flex justify-content-between">
-                  <strong>Rented from:</strong>
-                  <span><strong><%= booking.user.email %></strong></span>
-              </li>
-              <li class="d-flex justify-content-between">
-                  <strong>Rent start:</strong>
-                  <span><strong><%= booking.rent_start %></strong></span>
-              </li>
-              <li class="d-flex justify-content-between">
-                  <strong>Rent end:</strong>
-                  <span><strong><%= booking.rent_end %></strong></span>
-              </li>
-              <li class="d-flex justify-content-between">
-                  <strong>Price per Day:</strong>
-                  <span><strong><%= booking.lego_set.price_per_day %></strong></span>
-              </li>
-          </ul>
-      </div>
+
+      <h2 class="card-lego-price m-5"><%= booking.lego_set.price_per_day %>€ / per day</h2>
+    </div>
+
+
       <div class="card-footer text-right">
-          <button class="btn btn-dark">accept</button>
-          <button class="btn btn-warning">reject</button>
-          
+      <button class="btn btn-dark">accept</button>
+      <button class="btn btn-warning">reject</button>
+
       </div>
     </div>
   </div>
-  <% end %>
+</div>
+
+<% end %>
