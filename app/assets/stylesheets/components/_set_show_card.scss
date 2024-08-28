@@ -1,0 +1,30 @@
+.card-lego {
+  background-color: lightyellow;
+  border: 1px solid white;
+}
+.card-lego-infos {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightyellow;
+}
+.card-lego-price {
+  color: gray;
+  font-weight: bold;
+}
+.profile {
+  border: 2px solid #ffd700;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+.card-footer {
+  background-color: lightyellow;
+}
+
+.lego-img {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+}
