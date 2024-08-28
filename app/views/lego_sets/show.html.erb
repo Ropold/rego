@@ -29,7 +29,7 @@
       <%= link_to 'Your renters', lego_set_bookings_path(@lego), class:"btn btn-warning p-2 m-1"%>
       <button class="btn btn-warning p-2 m-1">Delete</button>
     <% else %>
-      <button class="btn btn-success p-2 m-1">Book this set!</button>
+      <%= link_to 'Book this set!', new_lego_set_booking_path(@lego), class: 'btn btn-success p-2 m-1' %>
     <% end %>
 
     </div>

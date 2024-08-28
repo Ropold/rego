@@ -13,9 +13,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @lego = LegoSet.find(params[:lego_set_id])
     @booking.lego_set = @lego
+    @booking.user = current_user
 
     if @booking.save
-      redirect_to lego_path(@lego)
+      redirect_to my_bookings_path
     else
       render :new
     end
