@@ -22,6 +22,10 @@ class LegoSetsController < ApplicationController
     @lego = LegoSet.find(params[:id])
   end
 
+  def my_sets
+    @legos = current_user.lego_sets
+  end
+
   private
 
   def lego_params

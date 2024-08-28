@@ -1,0 +1,34 @@
+<% @legos.each do |lego| %>
+  <div class="container mt-4">
+  <div class="card bg-info">
+    <div class="card-header">
+        <h1 class="card-title"><strong>Your Set:</strong></h1>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="d-flex justify-content-between">
+                <strong>Set Name:</strong>
+                <span><strong><%= lego.set_name %></strong></span>
+            </li>
+            <li class="d-flex justify-content-between">
+                <strong>Lego Number:</strong>
+                <span><strong><%= lego.lego_nr %></strong></span>
+            </li>
+            <li class="d-flex justify-content-between">
+                <strong>Release Year:</strong>
+                <span><strong><%= lego.release_year %></strong></span>
+            </li>
+            <li class="d-flex justify-content-between">
+                <strong>Price per Day:</strong>
+                <span><strong><%= lego.price_per_day %></strong></span>
+            </li>
+        </ul>
+    </div>
+    <div class="card-footer text-right">
+        <button class="btn btn-dark">Edit</button>
+        <button class="btn btn-warning">Delete</button>
+        <%= link_to 'Your renters', lego_set_bookings_path(lego), class: 'btn btn-primary'%>
+    </div>
+  </div>
+</div>
+<% end %>
