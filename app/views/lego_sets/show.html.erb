@@ -1,6 +1,7 @@
 <div class="container mt-5">
   <div class="card card-lego">
-    <img src="https://wallpapercave.com/wp/wp2350530.jpg" alt="Lego Set Image" class="lego-img" />
+    <%= cl_image_tag @lego.photo.key, class: "lego-img"%>
+    
     <div class="card-lego-infos">
 
       <div>
