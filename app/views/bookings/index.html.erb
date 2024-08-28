@@ -1,0 +1,34 @@
+<% @bookings.each do |booking| %>
+    <div class="container mt-4">
+    <div class="card bg-info">
+      <div class="card-header">
+          <h1 class="card-title"><strong>request:</strong></h1>
+      </div>
+      <div class="card-body">
+          <ul class="list-group">
+              <li class="d-flex justify-content-between">
+                  <strong>Rented from:</strong>
+                  <span><strong><%= booking.user.email %></strong></span>
+              </li>
+              <li class="d-flex justify-content-between">
+                  <strong>Rent start:</strong>
+                  <span><strong><%= booking.rent_start %></strong></span>
+              </li>
+              <li class="d-flex justify-content-between">
+                  <strong>Rent end:</strong>
+                  <span><strong><%= booking.rent_end %></strong></span>
+              </li>
+              <li class="d-flex justify-content-between">
+                  <strong>Price per Day:</strong>
+                  <span><strong><%= booking.lego_set.price_per_day %></strong></span>
+              </li>
+          </ul>
+      </div>
+      <div class="card-footer text-right">
+          <button class="btn btn-dark">accept</button>
+          <button class="btn btn-warning">reject</button>
+          
+      </div>
+    </div>
+  </div>
+  <% end %>
