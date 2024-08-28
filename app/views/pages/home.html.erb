@@ -5,6 +5,9 @@
   </div>
 </div>
 
+<%= cl_image_tag("mervayhcudur7zdezfxt",
+      width: 400, height: 300, crop: :fill) %>
+
 <div class="container mt-3">
   <div class="row">
     <% @lego_sets.sample(8).each do |lego| %> <!-- .sample(8) wählt 8 zufällige Sets -->
