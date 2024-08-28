@@ -1,0 +1,29 @@
+.card-lego-form {
+  background-color: lightyellow;
+  border: 1px solid gold;
+  padding: 20px;
+}
+.card-header {
+  background-color: gold;
+  border-bottom: 1px solid lightyellow;
+  padding: 10px;
+}
+.form-group {
+  margin-bottom: 15px;
+  margin:auto
+}
+.form-control {
+  border: 1px solid gold;
+  background-color: lightyellow;
+}
+.btn-warning {
+  background-color: rgb(243, 243, 98);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: 1s;
+}
+.btn-warning:hover {
+  background-color: gold;
+  transition: 1s;
+}
