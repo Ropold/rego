@@ -5,15 +5,12 @@
   </div>
 </div>
 
-<%= cl_image_tag("mervayhcudur7zdezfxt",
-      width: 400, height: 300, crop: :fill) %>
-
 <div class="container mt-3">
   <div class="row">
-    <% @lego_sets.sample(8).each do |lego| %> <!-- .sample(8) wählt 8 zufällige Sets -->
+    <% @lego_sets.each do |lego| %> <!-- .sample(8) wählt 8 zufällige Sets -->
       <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="card mt-3" style="width: 100%;">
-          <img src="https://cdn.pixabay.com/photo/2017/07/25/22/54/lego-2539844_960_720.jpg" class="card-img-top" alt="pixa">
+          <%= cl_image_tag lego.photo.key, class: "card-img-top set-img" %>
           <div class="card-body">
             <h5 class="card-title"><%= lego.set_name %></h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
