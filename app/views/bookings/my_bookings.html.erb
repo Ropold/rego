@@ -2,7 +2,7 @@
 <% @bookings.each do |booking| %>
   <div class="container mt-5">
   <div class="card card-lego">
-    <img src="https://wallpapercave.com/wp/wp2350530.jpg" alt="Lego Set Image" class="lego-img" />
+    <%= cl_image_tag booking.lego_set.photo.key, class: "lego-img"%>
     <div class="card-lego-infos">
 
       <div>
@@ -14,6 +14,7 @@
       </div>
 
       <h2 class="card-lego-price m-5"><%= booking.lego_set.price_per_day %>€ / per day</h2>
+      <h3 class="card-lego-price m-5"><%= booking.status %></h3>
     </div>
 
     <div class="card-body">
