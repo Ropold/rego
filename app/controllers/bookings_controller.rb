@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
+    @lego = LegoSet.find(params[:lego_set_id])
+    @bookings = @lego.bookings
   end
 
   def new
@@ -23,6 +24,14 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
   end
+
+  def my_bookings
+    @bookings = current_user.bookings
+  end
+
+  # def my_sets
+  #   @bookings
+  # end
 
   private
 
