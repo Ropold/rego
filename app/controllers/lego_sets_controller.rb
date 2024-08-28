@@ -11,6 +11,7 @@ class LegoSetsController < ApplicationController
 
   def create
     @lego = LegoSet.new(lego_params)
+    @lego.user = current_user
 
     if @lego.save
       redirect_to lego_set_path(@lego)
@@ -23,9 +24,13 @@ class LegoSetsController < ApplicationController
     @lego = LegoSet.find(params[:id])
   end
 
+  def my_sets
+    @legos = current_user.lego_sets
+  end
+
   private
 
   def lego_params
-    params.require(:lego_set).permit(:lego_nr, :set_name, :release_year, :price_per_day)
+    params.require(:lego_set).permit(:lego_nr, :set_name, :release_year, :price_per_day, :photo)
   end
 end

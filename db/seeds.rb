@@ -1,4 +1,27 @@
-LegoSet.create( user: User.last, set_name: 'lego', lego_nr: 5785, release_year: "2018-04-01", price_per_day: 100)
-LegoSet.create( user: User.last, set_name: 'set', lego_nr: 6033, release_year: "2022-08-01", price_per_day: 35)
-LegoSet.create( user: User.last, set_name: 'leg', lego_nr: 2244, release_year: "2014-02-21", price_per_day: 25)
-LegoSet.create( user: User.last, set_name: 'water', lego_nr: 3043, release_year: "2019-03-01", price_per_day: 20)
+require "json"
+require "open-uri"
+
+url = "https://rebrickable.com/api/v3/lego/sets/?key=#{ENV['REBRICKABLE_API_KEY']}"
+
+User.destroy_all
+LegoSet.destroy_all
+
+puts "Creating Users:"
+user1 = User.create(email: "johnd@wayne.com", password: "1234567898")
+user2 = User.create(email: "john@wick.com", password: "1234567898")
+user3 = User.create(email: "pocahontas@girl.com", password: "1234567898")
+user4 = User.create(email: "hercules@strong.com", password: "1234567898")
+
+lego_sets_serialized = URI.open(url).read
+lego_sets = JSON.parse(lego_sets_serialized)
+
+puts "Creating LegoSets:"
+
+lego_sets["results"].each do |lego_set|
+  puts "Creating LegoSet: #{lego_set["name"]}"
+  LegoSet.create!(set_name: lego_set["name"], lego_nr: lego_set["set_num"].to_i, release_year: lego_set["year"].to_s + "-1-1", price_per_day: rand(1..10), user_id: User.all.sample.id,)
+end
+
+puts "Creating Bookings:"
+
+# TODO: Create bookings
