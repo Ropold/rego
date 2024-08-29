@@ -21,25 +21,23 @@
       </div>
     </nav>
   </div>
-</div>
 
-
-<div class="container mt-3">
-  <div class="row">
-    <% if @lego_sets.any? %>
-      <% @lego_sets.each do |lego| %> <!-- .sample(8) wählt 8 zufällige Sets -->
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="card mt-3" style="width: 100%;">
-            <%= cl_image_tag lego.photo.key, class: "card-img-top set-img" %>
-            <div class="card-body">
-              <h5 class="card-title"><%= lego.set_name %></h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <%= link_to "Go to page", lego_set_path(lego), class: "btn btn-primary" %>
-            </div>
+  <div class="container mt-5" style="background-color: #fffacd; padding: 20px; border-radius: 25px;">
+    <div class="row">
+      <% if @lego_sets.any? %>
+      <% @lego_sets.each do |lego| %>
+        <div class="col-sm-6 col-md-4 col-lg-3 p-3">
+          <div class="card mt-3 lego-card" style="width: 100%; background-color: #ffebcd; border: 1px solid gold;">
+            <%= cl_image_tag lego.photo.key, class: "card-img-top set-img"%>
+              <div class="card-body m-2">
+                <h5 class="card-title"><strong><%= lego.set_name %></strong></h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <%= link_to "Go to page", lego_set_path(lego), class: "btn btn-warning" %>
+              </div>
           </div>
         </div>
       <% end %>
-    <% else %>
+       <% else %>
       <em>Sorry, no Lego found.</em>
     <% end %>
   </div>

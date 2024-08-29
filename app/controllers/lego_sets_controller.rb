@@ -24,6 +24,22 @@ class LegoSetsController < ApplicationController
     @lego = LegoSet.find(params[:id])
   end
 
+  def edit
+    @lego = LegoSet.find(params[:id])
+  end
+
+  def update
+    @lego = LegoSet.find(params[:id])
+    @lego.update(lego_params)
+    redirect_to my_sets_path(@lego)
+  end
+
+  def destroy
+    @lego = LegoSet.find(params[:id])
+    @lego.destroy
+    redirect_to my_sets_path
+  end
+
   def my_sets
     @legos = current_user.lego_sets
   end
