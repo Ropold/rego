@@ -6,6 +6,12 @@
   height: 100px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  // position: fixed; /* Fixiert den Footer am Bildschirm */
+  bottom: 0; /* Setzt den Footer an den unteren Rand */
+  // left: 0; /* Setzt den Footer an den linken Rand */
+  width: 100%; /* Stellt sicher, dass der Footer die gesamte Breite des Bildschirms einnimmt */
+  // z-index: 1000; /* Stellt sicher, dass der Footer über anderen Inhalten liegt */
+  // min-height: 0%;
 }
 .footer-links {
   display: flex;

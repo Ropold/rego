@@ -1,33 +1,46 @@
-
-<nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <form class="d-flex" role="search">
-      <input class="form-control me-4" type="search" placeholder="Type Legoset" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.pixabay.com/photo/2016/09/04/22/45/lego-1645498_960_720.jpg);">
   <div class="container text-center ">
     <h1>REGO</h1>
     <p>Rent your lego sets!</p>
+    <nav class="navbar bg-body-tertiary col-md-3 mx-auto d-flex justify-content-center">
+      <div class="container-fluid">
+        <%= form_with url: root_path, method: :get, local: true, class: "d-flex", role: "search" do %>
+          <%= text_field_tag :query, params[:query], class: "form-control me-4", placeholder: "Type Legoset", aria: { label: "Search" } %>
+          <%= submit_tag "Search", class: "btn btn-outline-success" %>
+        <% end %>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var searchInput = document.getElementById("search-input");
+          if (searchInput) {
+            searchInput.placeholder = "Type Legoset";
+          }
+        });
+      </script>
+
+      </div>
+    </nav>
   </div>
 </div>
 
+
 <div class="container mt-3">
   <div class="row">
-    <% @lego_sets.each do |lego| %> <!-- .sample(8) wählt 8 zufällige Sets -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card mt-3" style="width: 100%;">
-          <%= cl_image_tag lego.photo.key, class: "card-img-top set-img" %>
-          <div class="card-body">
-            <h5 class="card-title"><%= lego.set_name %></h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <%= link_to "Go to page", lego_set_path(lego), class: "btn btn-primary" %>
+    <% if @lego_sets.any? %>
+      <% @lego_sets.each do |lego| %> <!-- .sample(8) wählt 8 zufällige Sets -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card mt-3" style="width: 100%;">
+            <%= cl_image_tag lego.photo.key, class: "card-img-top set-img" %>
+            <div class="card-body">
+              <h5 class="card-title"><%= lego.set_name %></h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <%= link_to "Go to page", lego_set_path(lego), class: "btn btn-primary" %>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
+    <% else %>
+      <em>Sorry, no Lego found.</em>
     <% end %>
   </div>
 </div>

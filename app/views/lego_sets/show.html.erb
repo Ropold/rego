@@ -1,7 +1,12 @@
 <div class="container mt-5">
   <div class="card card-lego">
-    <%= cl_image_tag @lego.photo.key, class: "lego-img"%>
-    
+    <% if @lego.photo.attached? %>
+      <%= cl_image_tag @lego.photo.key, class: "lego-img"%>
+      <% else %>
+        <img src="https://www.lego.com/cdn/cs/set/assets/bltfbd377eafb67041a/76417.png" alt="" class="lego-img">
+      <% end %>
+
+
     <div class="card-lego-infos">
 
       <div>

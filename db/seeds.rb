@@ -1,9 +1,11 @@
 require "json"
 require "open-uri"
 
-url = "https://rebrickable.com/api/v3/lego/sets/?key=#{ENV['REBRICKABLE_API_KEY']}&theme_id=196"
+url = "https://rebrickable.com/api/v3/lego/sets/?key=#{ENV['REBRICKABLE_API_KEY']}&theme_id=761"
 
 # id 18, 158, 207 are star wars
+# id 196 is castle
+# 761 is ninjago
 Booking.destroy_all
 LegoSet.destroy_all
 User.destroy_all
