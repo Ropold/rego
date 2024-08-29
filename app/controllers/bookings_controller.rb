@@ -30,6 +30,20 @@ class BookingsController < ApplicationController
     @bookings = current_user.bookings
   end
 
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = "accepted"
+    @booking.save
+    redirect_to lego_set_bookings_path
+  end
+
+  def reject
+    @booking = Booking.find(params[:id])
+    @booking.status = "rejected"
+    @booking.save
+    redirect_to lego_set_bookings_path
+  end
+
   # def my_sets
   #   @bookings
   # end
