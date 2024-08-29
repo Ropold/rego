@@ -1,5 +1,5 @@
 <h1 class="text-center mt-3"> <strong> Your Bookings </strong></h1>
-<% @bookings.each do |booking| %>
+<% @bookings.reverse_each do |booking| %>
   <div class="container mt-5">
   <div class="card card-lego">
     <%= cl_image_tag booking.lego_set.photo.key, class: "lego-img"%>
