@@ -1,0 +1,41 @@
+.banner {
+  padding: 100px;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.btn-warning {
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+}
+.btn-warning:hover {
+  background-color: lightyellow;
+}
+
+.card-title {
+  font-size: 16px;
+  color: black;
+}
+
+.card-text {
+  color: gray;
+  font-size: 13px;
+}
+
+.lego-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.473), 1px 1px 3px rgba(128, 128, 128, 0.411);
+}
+
+.lego-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 5px 5px 9px rgba(128, 128, 128, 0.442), 5px 5px 9px rgba(128, 128, 128, 0.442);
+}
+
+.lego-card:active {
+  transform: translateY(0);
+  box-shadow: 2 2px 2px rgba(128, 128, 128, 0.25), 2 2px 2px rgba(128, 128, 128, 0.24);
+}

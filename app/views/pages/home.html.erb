@@ -8,26 +8,28 @@
   </div>
 </nav>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.pixabay.com/photo/2016/09/04/22/45/lego-1645498_960_720.jpg);">
-  <div class="container text-center ">
-    <h1>REGO</h1>
-    <p>Rent your lego sets!</p>
+<div class="homepage" style="background-color: lightyellow;">
+  <div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://cdn.pixabay.com/photo/2016/09/04/22/45/lego-1645498_960_720.jpg); background-size: cover; color: white;">
+    <div class="container text-center py-5">
+      <h1>REGO</h1>
+      <p>Rent your Lego sets!</p>
+    </div>
   </div>
-</div>
 
-<div class="container mt-3">
-  <div class="row">
-    <% @lego_sets.each do |lego| %> <!-- .sample(8) wählt 8 zufällige Sets -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card mt-3" style="width: 100%;">
-          <%= cl_image_tag lego.photo.key, class: "card-img-top set-img" %>
-          <div class="card-body">
-            <h5 class="card-title"><%= lego.set_name %></h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <%= link_to "Go to page", lego_set_path(lego), class: "btn btn-primary" %>
+  <div class="container mt-5" style="background-color: #fffacd; padding: 20px; border-radius: 25px;">
+    <div class="row">
+      <% @lego_sets.each do |lego| %>
+        <div class="col-sm-6 col-md-4 col-lg-3 p-3">
+          <div class="card mt-3 lego-card" style="width: 100%; background-color: #ffebcd; border: 1px solid gold;">
+            <%= cl_image_tag lego.photo.key, class: "card-img-top set-img"%>
+              <div class="card-body m-2">
+                <h5 class="card-title"><strong><%= lego.set_name %></strong></h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <%= link_to "Go to page", lego_set_path(lego), class: "btn btn-warning" %>
+              </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
