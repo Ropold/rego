@@ -1,0 +1,45 @@
+.lego-button {
+  display: inline-block;
+  width: 100px; /* Adjust width to make the button smaller */
+  height: 60px; /* Adjust height to make the button smaller */
+  background-color: #4CAF50; /* Green color */
+  border: 1px solid #666; /* Subtle border */
+  border-radius: 5px; /* Rounded corners */
+  position: relative;
+  text-align: center;
+  line-height: 60px; /* Center text vertically */
+  font-weight: bold;
+  color: #fff; /* White text color for better readability */
+  text-decoration: none; /* Remove underline */
+  box-shadow: 0 4px 0 #388E3C, 0 4px 8px rgba(0, 0, 0, 0.2); /* 3D effect */
+  transition: transform 0.2s; /* Smooth transition */
+  padding: 0 10px; /* Add padding for better readability */
+}
+
+.lego-button:active {
+  animation: bounce 0.3s;
+}
+
+@keyframes bounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+.lego-button span {
+  display: block;
+  position: absolute;
+  width: 15px; /* Adjust width to make the studs smaller */
+  height: 15px; /* Adjust height to make the studs smaller */
+  background-color: #4CAF50;
+  border: 1px solid #666; /* Subtle border */
+  border-radius: 50%;
+  box-shadow: 0 2px 0 #388E3C, 0 2px 4px rgba(0, 0, 0, 0.2); /* 3D effect for studs */
+}
+
+.lego-button span:nth-child(1) { top: 5px; left: 15px; }
+.lego-button span:nth-child(2) { top: 5px; left: 45px; }
+.lego-button span:nth-child(3) { top: 5px; left: 75px; }
+.lego-button span:nth-child(4) { top: 35px; left: 15px; }
+.lego-button span:nth-child(5) { top: 35px; left: 45px; }
+.lego-button span:nth-child(6) { top: 35px; left: 75px; }
