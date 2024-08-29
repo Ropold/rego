@@ -1,6 +1,6 @@
 <h1 class="text-center mt-3"> <strong> Your Lego Sets </strong></h1>
 <% @legos.each do |lego| %>
-  <div class="container mt-5">
+  <div class="container w-75 mt-5">
   <div class="card card-lego">
     <%= cl_image_tag lego.photo.key, class: "lego-img"%>
     <div class="card-lego-infos">
