@@ -1,23 +1,30 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.pixabay.com/photo/2016/09/04/22/45/lego-1645498_960_720.jpg);">
+  <div class="container text-center ">
+    <h1>REGO</h1>
+    <p>Rent your lego sets!</p>
+    <nav class="navbar bg-body-tertiary col-md-3 mx-auto d-flex justify-content-center">
+      <div class="container-fluid">
+        <%= form_with url: root_path, method: :get, local: true, class: "d-flex", role: "search" do %>
+          <%= text_field_tag :query, params[:query], class: "form-control me-4", placeholder: "Type Legoset", aria: { label: "Search" } %>
+          <%= submit_tag "Search", class: "btn btn-outline-success" %>
+        <% end %>
 
-<nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <form class="d-flex" role="search">
-      <input class="form-control me-4" type="search" placeholder="Type Legoset" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var searchInput = document.getElementById("search-input");
+          if (searchInput) {
+            searchInput.placeholder = "Type Legoset";
+          }
+        });
+      </script>
 
-<div class="homepage" style="background-color: lightyellow;">
-  <div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://cdn.pixabay.com/photo/2016/09/04/22/45/lego-1645498_960_720.jpg); background-size: cover; color: white;">
-    <div class="container text-center py-5">
-      <h1>REGO</h1>
-      <p>Rent your Lego sets!</p>
-    </div>
+      </div>
+    </nav>
   </div>
 
   <div class="container mt-5" style="background-color: #fffacd; padding: 20px; border-radius: 25px;">
     <div class="row">
+      <% if @lego_sets.any? %>
       <% @lego_sets.each do |lego| %>
         <div class="col-sm-6 col-md-4 col-lg-3 p-3">
           <div class="card mt-3 lego-card" style="width: 100%; background-color: #ffebcd; border: 1px solid gold;">
@@ -30,6 +37,8 @@
           </div>
         </div>
       <% end %>
-    </div>
+       <% else %>
+      <em>Sorry, no Lego found.</em>
+    <% end %>
   </div>
 </div>
