@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="card card-lego">
     <%= cl_image_tag @lego.photo.key, class: "lego-img"%>
-    
+
     <div class="card-lego-infos">
 
       <div>
@@ -25,9 +25,8 @@
 
     <div class="card-footer d-flex mb-3">
     <% if @lego.user == current_user %>
-      <button class="btn btn-dark me-auto p-2 m-1">Edit</button>
-      <%= link_to 'Your renters', lego_set_bookings_path(@lego), class:"btn btn-warning p-2 m-1"%>
-      <button class="btn btn-warning p-2 m-1">Delete</button>
+      <%= link_to 'Edit', edit_lego_set_path(@lego), class:"btn btn-dark me-auto p-2 m-1"%>      <%= link_to 'Your renters', lego_set_bookings_path(@lego), class:"btn btn-warning p-2 m-1"%>
+      <%= link_to "Delete", lego_set_path(@lego), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class:"btn btn-warning p-2 m-1"%>
     <% else %>
       <%= link_to 'Book this set!', new_lego_set_booking_path(@lego), class: 'btn btn-success p-2 m-1' %>
     <% end %>
