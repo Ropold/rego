@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container pt-5">
   <div class="card-lego">
     <% if @lego.photo.attached? %>
       <%= cl_image_tag @lego.photo.key, class: "lego-img"%>
@@ -34,7 +34,7 @@
       <%= link_to 'Book this set!', new_lego_set_booking_path(@lego), class: 'btn btn-success p-2 m-1' %>
     <% end %>
     </div>
-      
+
     </div>
   </div>
 </div>
