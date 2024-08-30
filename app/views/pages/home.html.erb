@@ -3,10 +3,10 @@
   <div class="container text-center ">
     <h1>REGO</h1>
     <p>Rent your lego sets!</p>
-    <nav class="navbar bg-body-tertiary col-md-3 mx-auto d-flex justify-content-center">
+    <nav class="navbar bg-body-tertiary col-md-3 mx-auto d-flex justify-content-center" >
       <div class="container-fluid">
         <%= form_with url: root_path, method: :get, local: true, class: "d-flex", role: "search" do %>
-          <%= text_field_tag :query, params[:query], class: "form-control me-4", placeholder: "Type Legoset", aria: { label: "Search" } %>
+          <%= text_field_tag :query, params[:query], class: "form-control me-4", placeholder: "Type Lego", aria: { label: "Search" } %>
           <%= submit_tag "Search", class: "btn btn-outline-success" %>
         <% end %>
 
@@ -14,7 +14,7 @@
           document.addEventListener("DOMContentLoaded", function() {
             var searchInput = document.getElementById("search-input");
             if (searchInput) {
-              searchInput.placeholder = "Type Legoset";
+              searchInput.placeholder = "Type Lego";
             }
           });
         </script>
