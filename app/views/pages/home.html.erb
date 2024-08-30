@@ -33,7 +33,7 @@
             <%= cl_image_tag lego.photo.key, class: "card-img-top set-img" %>
             <div class="card-body m-2 d-flex flex-column">
               <h5 class="card-title"><strong><%= lego.set_name %></strong></h5>
-              <p class="card-text flex-grow-1">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text flex-grow-1"><%= lego.description %></p>
               <%= link_to lego_set_path(lego), class: "lego-button mt-auto" do %>
                 Details
                 <span></span>
@@ -52,4 +52,3 @@
     <% end %>
   </div>
 </div>
-

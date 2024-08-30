@@ -2,7 +2,7 @@ class LegoSetsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
 
   def index
-    
+
   end
 
   def new
@@ -31,7 +31,7 @@ class LegoSetsController < ApplicationController
   def update
     @lego = LegoSet.find(params[:id])
     @lego.update(lego_params)
-    redirect_to my_sets_path(@lego)
+    redirect_to lego_set_path(@lego)
   end
 
   def destroy
@@ -47,6 +47,6 @@ class LegoSetsController < ApplicationController
   private
 
   def lego_params
-    params.require(:lego_set).permit(:lego_nr, :set_name, :release_year, :price_per_day, :photo)
+    params.require(:lego_set).permit(:lego_nr, :set_name, :release_year, :price_per_day, :photo, :description)
   end
 end
