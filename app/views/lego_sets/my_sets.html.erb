@@ -1,4 +1,4 @@
-<h1 class="text-center">Your Lego Sets</h1>
+<h1 class="text-center pt-3">Your Lego Sets</h1>
 
 <% @legos.each do |lego| %>
   <div class="container mt-5">
@@ -22,7 +22,7 @@
 
         <div class="card-body">
           <h4 class="mb-3">Description:</h4>
-          <p class="text-muted"><%= @lego.description %></p>
+          <p class="text-muted"><%= lego.description %></p>
         </div>
 
 

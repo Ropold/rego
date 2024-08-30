@@ -1,4 +1,4 @@
-<h1 class="text-center">Your Bookings</h1>
+<h1 class="text-center pt-3">Your Bookings</h1>
 
 <% @bookings.reverse_each do |booking| %>
   <div class="container mt-5">
@@ -27,7 +27,7 @@
 
         <div class="card-body">
           <h5 class="mb-3" style="text-shadow: 1px 1px 1px gray"><strong>Description:</strong></h5>
-          <p class="text-muted"><%= @lego.description %></p>
+          <p class="text-muted"><%= booking.lego_set.description %></p>
         </div>
       </div>
     </div>
