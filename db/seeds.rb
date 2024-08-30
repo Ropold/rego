@@ -1,5 +1,6 @@
 require "json"
 require "open-uri"
+require 'faker'
 
 url = "https://rebrickable.com/api/v3/lego/sets/?key=#{ENV['REBRICKABLE_API_KEY']}&theme_id=761"
 
@@ -25,7 +26,8 @@ puts "Creating LegoSets:"
 
 lego_sets["results"].first(10).each do |lego_set|
   puts "Creating LegoSet: #{lego_set["name"]}"
-  new_lego_set = LegoSet.create!(set_name: lego_set["name"], lego_nr: lego_set["set_num"].to_i, release_year: lego_set["year"].to_s + "-1-1", price_per_day: rand(1..10), user_id: User.all.sample.id)
+  new_lego_set = LegoSet.create!(set_name: lego_set["name"], lego_nr: lego_set["set_num"].to_i, release_year: lego_set["year"].to_s + "-1-1", num_parts: lego_set["num_parts"], price_per_day: rand(1..10), user_id: User.all.sample.id,)
+  # description: Faker::Lorem.sentence(word_count: rand(10..15)).chomp('.')
   new_lego_set.photo.attach(io: URI.open(lego_set["set_img_url"].to_s), filename: File.basename(lego_set["set_img_url"].to_s)) if lego_set["set_img_url"].present?
 end
 
