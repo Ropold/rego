@@ -1,30 +1,89 @@
 .card-lego {
   background-color: lightyellow;
-  border: 1px solid white;
+  border: 1px solid gray;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
 }
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .card-lego-infos {
   padding: 20px;
+  background-color: lightyellow;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  background-color: lightyellow;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
+
 .card-lego-price {
   color: gray;
-  font-weight: bold;
-}
-.profile {
-  border: 2px solid #ffd700;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-}
-.card-footer {
-  background-color: lightyellow;
+  font-size: 1.5rem;
+  margin: 0 20px;
 }
 
 .lego-img {
-  height: 500px;
+  height: 650px;
   width: 100%;
   object-fit: cover;
+  border-right: 1px solid #e0e0e0;
+}
+
+.card-title {
+  font-size: 2rem;
+  color: gray;
+  margin-bottom: 15px;
+}
+
+.card-body {
+  padding: 20px;
+  font-size: 1rem;
+}
+
+.list-group-item {
+  background-color: lightyellow;
+  border: none;
+  padding: 15px;
+  font-size: 1rem;
+}
+
+.card-footer {
+  background-color: lightyellow;
+  border-top: 1px solid #e0e0e0;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+p {
+  color: gray;
+}
+
+h4 {
+  font-weight: normal;
+  color: gray;
+}
+
+h6 {
+  text-shadow: 1px 1px 1px gray;
 }

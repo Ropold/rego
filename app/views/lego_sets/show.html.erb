@@ -1,31 +1,30 @@
 <div class="container mt-5">
-  <div class="card card-lego">
+  <div class="card-lego">
     <% if @lego.photo.attached? %>
       <%= cl_image_tag @lego.photo.key, class: "lego-img"%>
       <% else %>
         <img src="https://www.lego.com/cdn/cs/set/assets/bltfbd377eafb67041a/76417.png" alt="" class="lego-img">
       <% end %>
-
+    <div class="card-content">
     <div class="card-lego-infos">
 
       <div>
-        <h2 class="card-title py-2"><strong><%= @lego.set_name %>:</strong></h2>
-        <p>Lego Set Number: <strong><%= @lego.lego_nr %></strong></p>
-        <p>Release Year: <strong><%= @lego.release_year %></strong></p>
-        <p>Price: <strong><%= @lego.price_per_day %>€/per day</strong></p>
+        <h2 class="card-title py-2"><%= @lego.set_name %>:</h2>
+        <h6>Lego Set Number:</h6>
+        <p><strong><%= @lego.lego_nr %></strong></p>
+        <h6>Release Year:</h6>
+        <p><strong><%= @lego.release_year %></strong></p>
+        <h6>Price:</h6>
+        <p><strong><%= @lego.price_per_day %>€/per day</strong></p>
       </div>
 
       <h2 class="card-lego-price m-5"><%= @lego.price_per_day %>€</h2>
     </div>
 
     <div class="card-body">
-      <ul class="list-group">
-        <li class="list-group-item d-flex" style="background-color: lightyellow">
-          <strong>Description:&nbsp;&nbsp; </strong>
-          <span><%= @lego.description %></span>
-        </li>
-      </ul>
-    </div>
+          <h5 class="mb-3" style="text-shadow: 1px 1px 1px gray"><strong>Description:</strong></h5>
+          <p class="text-muted"><%= @lego.description %></p>
+     </div>
 
     <div class="card-footer d-flex mb-3">
     <% if @lego.user == current_user %>
@@ -34,7 +33,8 @@
     <% else %>
       <%= link_to 'Book this set!', new_lego_set_booking_path(@lego), class: 'btn btn-success p-2 m-1' %>
     <% end %>
-
+    </div>
+      
     </div>
   </div>
 </div>

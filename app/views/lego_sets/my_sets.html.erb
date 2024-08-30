@@ -1,39 +1,41 @@
-<h1 class="text-center mt-3"> <strong> Your Lego Sets </strong></h1>
+<h1 class="text-center">Your Lego Sets</h1>
+
 <% @legos.each do |lego| %>
-  <div class="container w-75 mt-5">
-  <div class="card card-lego">
-    <%= cl_image_tag lego.photo.key, class: "lego-img"%>
-    <div class="card-lego-infos">
+  <div class="container mt-5">
+    <div class="card-lego mb-4 shadow-sm rounded">
+      <%= cl_image_tag lego.photo.key, class: "lego-img rounded-top" %>
 
-      <div>
-        <h2 class="card-title py-2"><strong><%= lego.set_name %>:</strong></h2>
-        <p>Lego Set Number: <strong><%= lego.lego_nr %></strong></p>
-        <p>Release Year: <strong><%= lego.release_year %></strong></p>
+      <div class="card-content p-4">
+        <div class="card-lego-infos d-flex justify-content-between align-items-start mb-4">
+          <div>
+            <h2 class="card-title py-2"><%= lego.set_name %></h2>
+            <p class="pt-2 mb-1">Lego Set Number</p>
+            <p><%= lego.lego_nr %></p>
+            <p class="mb-3">Release Year:</p>
+            <p><%= lego.release_year %></p>
+          </div>
+
+          <div class="d-flex flex-column align-items-end">
+            <h2 class="card-lego-price mb-3"><%= lego.price_per_day %>€ / per day</h2>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <h4 class="mb-3">Description:</h4>
+          <p class="text-muted"><%= @lego.description %></p>
+        </div>
+
+
+        <div class="card-footer d-flex justify-content-end">
+          <% if lego.user == current_user %>
+            <%= link_to 'Edit', edit_lego_set_path(lego), class:"btn btn-dark me-auto p-2 m-1"%>
+            <%= link_to 'Your renters', lego_set_bookings_path(lego), class:"btn btn-info p-2 m-1"%>
+            <%= link_to "Delete", lego_set_path(lego), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-warning p-2 m-1"%>
+          <% else %>
+            <button class="btn btn-success p-2 m-1">Book this set!</button>
+          <% end %>
+        </div>
       </div>
-
-      <h2 class="card-lego-price m-5"><%= lego.price_per_day %>€ / per day</h2>
-    </div>
-
-    <div class="card-body">
-      <ul class="list-group">
-        <li class="list-group-item d-flex" style="background-color: lightyellow">
-          <strong>Description:&nbsp;&nbsp;</strong>
-          <span><%= lego.description %></span>
-        </li>
-      </ul>
-    </div>
-        <div class="card-footer d-flex mb-3">
-    <% if lego.user == current_user %>
-      <%= link_to 'Edit', edit_lego_set_path(lego), class:"btn btn-dark me-auto p-2 m-1"%>
-      <%= link_to 'Your renters', lego_set_bookings_path(lego), class:"btn btn-info p-2 m-1"%>
-      <%= link_to "Delete", lego_set_path(lego), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class:"btn btn-warning p-2 m-1"%>
-    <% else %>
-      <button class="btn btn-success p-2 m-1">Book this set!</button>
-    <% end %>
-
-
-    </div>
     </div>
   </div>
-</div>
 <% end %>
