@@ -3,10 +3,10 @@
   <div class="container text-center ">
     <h1>REGO</h1>
     <p>Rent your lego sets!</p>
-    <nav class="navbar bg-body-tertiary col-md-3 mx-auto d-flex justify-content-center">
+    <nav class="navbar bg-body-tertiary col-md-3 mx-auto d-flex justify-content-center" >
       <div class="container-fluid">
         <%= form_with url: root_path, method: :get, local: true, class: "d-flex", role: "search" do %>
-          <%= text_field_tag :query, params[:query], class: "form-control me-4", placeholder: "Type Legoset", aria: { label: "Search" } %>
+          <%= text_field_tag :query, params[:query], class: "form-control me-4", placeholder: "Type Lego", aria: { label: "Search" } %>
           <%= submit_tag "Search", class: "btn btn-outline-success" %>
         <% end %>
 
@@ -14,7 +14,7 @@
           document.addEventListener("DOMContentLoaded", function() {
             var searchInput = document.getElementById("search-input");
             if (searchInput) {
-              searchInput.placeholder = "Type Legoset";
+              searchInput.placeholder = "Type Lego";
             }
           });
         </script>
@@ -33,7 +33,9 @@
             <%= cl_image_tag lego.photo.key, class: "card-img-top set-img" %>
             <div class="card-body m-2 d-flex flex-column">
               <h5 class="card-title"><strong><%= lego.set_name %></strong></h5>
-              <p class="card-text flex-grow-1">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text flex-grow-1">Releaseyear: <%= lego.release_year %> <br>
+              Numparts: <%= lego.num_parts %> </p>
+              <p class="card-text flex-grow-1"><%= lego.description %></p>
               <%= link_to lego_set_path(lego), class: "lego-button mt-auto" do %>
                 Details
                 <span></span>

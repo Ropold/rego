@@ -5,6 +5,7 @@ class CreateLegoSets < ActiveRecord::Migration[7.1]
       t.string :set_name
       t.date :release_year
       t.float :price_per_day
+      t.string :description
 
       t.timestamps
     end

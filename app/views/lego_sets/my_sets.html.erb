@@ -25,6 +25,7 @@
           <p class="text-muted"><%= @lego.description %></p>
         </div>
 
+
         <div class="card-footer d-flex justify-content-end">
           <% if lego.user == current_user %>
             <%= link_to 'Edit', edit_lego_set_path(lego), class:"btn btn-dark me-auto p-2 m-1"%>

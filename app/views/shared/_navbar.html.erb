@@ -3,7 +3,7 @@
 
     <%= link_to root_path, class: "navbar-brand d-flex" do %>
       <%= image_tag "https://cdn.pixabay.com/photo/2018/06/02/14/40/lego-3448508_960_720.png" %>
-      <h2 class="ms-3"><strong>REGO</strong></h2>
+      <h2 class="ms-3 main-font"><strong>REGO</strong></h2>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,17 +13,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Whish-list", "#", class: "nav-link" %>
-          </li>
-            <li class="nav-item">
+            <li class="nav-item active">
             <strong><%= link_to "Bookings", my_bookings_path, class: "nav-link" %></strong>
           </li>
           <li class="nav-item">
             <strong><%= link_to "My Lego Sets", my_sets_path, class: "nav-link" %></strong>
           </li>
           <li class="nav-item">
-            <strong><%= link_to "Add a new Set", "/lego_sets/new", class: "nav-link" %></strong>
+            <strong>
+              <%= link_to new_lego_set_path, class: "red-lego-button mt-auto me-3" do  %>
+                Add Set <i class="fa-solid fa-plus"></i>
+              <% end %>
+
+            </strong>
           </li>
 
           <li class="nav-item dropdown">
