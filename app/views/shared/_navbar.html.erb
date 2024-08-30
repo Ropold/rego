@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    
+
     <%= link_to root_path, class: "navbar-brand d-flex" do %>
       <%= image_tag "https://cdn.pixabay.com/photo/2018/06/02/14/40/lego-3448508_960_720.png" %>
       <h2 class="ms-3"><strong>REGO</strong></h2>
@@ -31,8 +31,7 @@
             <%= image_tag "https://i.redd.it/q705gzmqd2x81.png", class: "avatar", alt: "dropdown menu" %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "My Account", "#", class: "dropdown-item" %>
+              <%= link_to "My Account", "/users/edit", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
